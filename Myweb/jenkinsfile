@@ -8,7 +8,7 @@ pipeline {
         }
     }
     agent any
-        stage('build') {
+        stage('build docker image') {
             steps {
                 sh 'docker build -t test/myapp .'
             }
