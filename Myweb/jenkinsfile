@@ -13,7 +13,7 @@
 	    stage('Docker Build') {
 	      agent any
 	      steps {
-	        sh 'docker build -t test/myapp .'
+	        sh 'docker build -t test/myapp Myweb/.'
 	      }
 	    }
 	        stage('Docker Deploy') {
