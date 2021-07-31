@@ -7,7 +7,7 @@
 	    stage('Maven Build') {
 	      agent any
 	      steps {
-	        sh 'mvn -f Myweb/pom.xml clean compile'
+	        sh 'mvn -f Myweb/pom.xml compile'
 	      }
 	    }	    
 	    stage('Docker Build') {
