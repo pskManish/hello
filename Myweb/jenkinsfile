@@ -19,6 +19,8 @@
 	        stage('Docker Deploy') {
 	      agent any
 	      steps {
+	      	sh 'docker stop test/myapp'
+	      	sh 'docker rm test/myapp'
 	        sh 'docker run -p 8081:8081 test/myapp'
 	          
 	      }
