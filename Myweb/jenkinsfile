@@ -21,7 +21,7 @@
 	      steps {
 	      	sh 'docker stop MyWebApp'
 	      	sh 'docker rm MyWebApp'
-	        sh 'docker run --name MyWebApp -p 8081:8081 test/myapp'
+	        sh 'docker run -d --name MyWebApp -p 8081:8081 test/myapp'
 	          
 	      }
 	    }
