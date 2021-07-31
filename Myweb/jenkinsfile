@@ -4,10 +4,10 @@
 	pipeline {
 	    agent none
 	    stages{
-	    stage('Maven Build /Myweb/') {
+	    stage('Maven Build') {
 	      agent any
 	      steps {
-	        sh 'mvn compile'
+	        sh 'mvn -f Myweb/pom.xml compile'
 	      }
 	    }	    
 	    stage('Docker Build') {
