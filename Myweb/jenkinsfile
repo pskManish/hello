@@ -1,0 +1,27 @@
+pipeline {
+    agent { docker { image 'maven:3.3.3' } }
+    stages {
+        stage('build') {
+            steps {
+                sh 'mvn --version'
+            }
+        }
+    }
+    agent any
+    stages {
+        stage('build') {
+            steps {
+                sh 'docker build -t test/myapp .'
+            }
+        }
+    }	
+        stage('Deploy') {
+            when {
+              expression {
+                currentBuild.result == null || currentBuild.result == 'SUCCESS' 
+              }
+            }
+            steps {
+                sh 'docker run -p 8081:8081 test/myapp'
+            }	
+}
